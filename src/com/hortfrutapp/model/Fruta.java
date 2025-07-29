@@ -8,13 +8,13 @@ public class Fruta extends Produto {
 	
 		public Fruta () {
 			this.peso = 0.0;
-			Fruta.setTotalFrutas();
+			Fruta.addTotalFrutas();
 		}
 		
-		public Fruta (String nome, double preco, int quantidade, double peso) {
-			super(nome, preco, quantidade);
+		public Fruta (int id, String nome, double preco, int quantidade, double peso) {
+			super(id, nome, preco, quantidade);
 			this.peso = peso;
-			Fruta.setTotalFrutas();
+			Fruta.addTotalFrutas();
 		}
 
 		public double getPeso (){
@@ -25,7 +25,7 @@ public class Fruta extends Produto {
 			this.peso = peso;
 		}
 		
-		public static void setTotalFrutas() {
+		public static void addTotalFrutas() {
 			Fruta.totalFrutas++;
 		}
 		
@@ -33,9 +33,13 @@ public class Fruta extends Produto {
 			return totalFrutas;
 		}
 		
+		public static void setTotalFrutas(int totalFrutas) {
+			Fruta.totalFrutas = totalFrutas;
+		}
+		
 		@Override
 		public String toString() {		
-			return "- Nome: " + this.nome + "\n- Preço: R$" + this.preco + "\n- Quantidade: " + this.quantidade + "\n- Peso: " + this.peso + "kg";
+			return "- ID: " + this.id + "\n- Nome: " + this.nome + "\n- Preço: R$" + this.preco + "\n- Quantidade: " + this.quantidade + "\n- Peso: " + this.peso + "kg";
 		}
 		
 		

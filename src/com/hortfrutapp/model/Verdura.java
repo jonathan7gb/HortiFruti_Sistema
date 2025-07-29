@@ -8,13 +8,13 @@ public class Verdura extends Produto {
     public Verdura (){
         super();
         this.tipo = "";
-        Verdura.setTotalVerduras();
+        Verdura.addTotalVerduras();
     }
 
-    public Verdura(String nome, double preco, int quantidade, String tipo) {
-        super(nome, preco, quantidade);
+    public Verdura(int id, String nome, double preco, int quantidade, String tipo) {
+        super(id, nome, preco, quantidade);
         this.tipo = tipo;
-        Verdura.setTotalVerduras();
+        Verdura.addTotalVerduras();
     }
 
     public String getTipo() {
@@ -25,17 +25,21 @@ public class Verdura extends Produto {
         this.tipo = tipo;
     }
     
-    public static void setTotalVerduras() {
+    public static void addTotalVerduras() {
     	Verdura.totalVerduras++;
 	}
 	
 	public static int getTotalVerduras() {
 		return totalVerduras;
 	}
+	
+	public static void setTotalVerduras(int totalVerduras) {
+		Verdura.totalVerduras = totalVerduras;
+	}
     
     @Override
 	public String toString() {		
-		return "- Nome: " + this.nome + "\n- Preço: R$" + this.preco + "\n- Quantidade: " + this.quantidade + "\n- Tipo: " + this.tipo;
+		return  "- ID: " + this.id + "\n- Nome: " + this.nome + "\n- Preço: R$" + this.preco + "\n- Quantidade: " + this.quantidade + "\n- Tipo: " + this.tipo;
 	}
 }
 
