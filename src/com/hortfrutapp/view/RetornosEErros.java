@@ -1,0 +1,84 @@
+package com.hortfrutapp.view;
+
+import com.hortfrutapp.model.Fruta;
+import com.hortfrutapp.model.Produto;
+import com.hortfrutapp.model.Tempero;
+import com.hortfrutapp.model.Verdura;
+
+public class RetornosEErros {
+
+	public void produtoN() {
+		System.out.println("\n|| Nenhum Produto cadastrado! ||");
+	}
+	
+	//==================================================================
+		
+	public void frutaN() {
+		System.out.println("|| Nenhuma Fruta cadastrada! ||");
+	}
+
+	//==================================================================
+				
+	public void verduraN() {
+		System.out.println("|| Nenhuma Verdura cadastrada! ||");
+	}
+
+	//==================================================================
+		
+	public void temperoN() {
+		System.out.println("|| Nenhum Tempero cadastrado! ||");
+	}
+
+	//==================================================================
+		
+	public void frutaNaoEncontrado(String nome) {
+		System.out.println("\n|| A Fruta "+nome+" não foi encontrada. ||");
+	}
+
+	//==================================================================
+		
+	public void verduraNaoEncontrado(String nome) {
+		System.out.println("\n|| A verdura "+nome+" não foi encontrada. ||");
+	}
+
+	//==================================================================
+			
+	public void TemperoNaoEncontrado(String nome) {
+		System.out.println("\n|| O tempero "+nome+" não foi encontrado. ||");
+	}		
+
+	//==================================================================
+		
+	public void frutaRemovida (){
+		System.out.println("\n|| Fruta removida com sucesso! ||");
+	}
+
+	//==================================================================
+		
+	public void verduraRemovida (){
+		System.out.println("\n|| Verdura removida com sucesso! ||");
+	}
+
+	//==================================================================
+		
+	public void temperoRemovida (){
+		System.out.println("\n|| Tempero removido com sucesso! ||");
+	}
+
+	//==================================================================
+		
+	public void erro(){
+		System.out.println("|| Erro: Opção inválida! ||");
+	}
+
+	//==================================================================
+	
+	public static void totalProdutos() {
+		int totalProdutos = Produto.getTotalProdutos();
+		int totalFrutas = Fruta.getTotalFrutas();
+		int totalVerduras = Verdura.getTotalVerduras();
+		int totalTemperos = Tempero.getTotalTemperos();
+		System.out.println("\n||  Até agora temos " + totalProdutos + " produto(s) cadastrado(s). ||");
+		System.out.println("|| " + totalFrutas + " são frutas. " + totalVerduras + " são verduras. " + totalTemperos + " são temperos ||");
+	}
+}

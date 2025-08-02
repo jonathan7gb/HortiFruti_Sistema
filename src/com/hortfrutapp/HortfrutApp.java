@@ -1,24 +1,28 @@
 package com.hortfrutapp;
 
-import com.hortfrutapp.view.Atendente;
-import com.hortfrutapp.service.Estoque;
+import com.hortfrutapp.view.*;
+import com.hortfrutapp.service.*;
 
 public class HortfrutApp {
 
     public static void main(String[] args) {
-        Atendente atendente = new Atendente();
+        Menus menu = new Menus();
+        CadastroProdutos cadastro_produtos = new CadastroProdutos();
+        RemocaoProdutos remocao_produtos = new RemocaoProdutos();
+        RetornosEErros retornos_e_erros = new RetornosEErros();
+        MensagemSaida mensagem_saida = new MensagemSaida();
         Estoque estoque = new Estoque();
         int opcaoMenu = 0;
 
         do {
-            opcaoMenu = atendente.menu();
+            opcaoMenu = menu.menu();
 
             if (opcaoMenu >= 1 && opcaoMenu <= 4) {
-                estoque.gerenciadorApp(opcaoMenu, atendente);
+                estoque.gerenciadorApp(opcaoMenu, menu, cadastro_produtos, mensagem_saida, retornos_e_erros, remocao_produtos);
             } else if (opcaoMenu == 0) {
-                atendente.encerrando();
+                mensagem_saida.encerrando();
             } else {
-                atendente.erro();
+            	retornos_e_erros.erro();
             }
         } while (opcaoMenu != 0);
     }
