@@ -46,6 +46,12 @@ public class RetornosEErros {
 	public void TemperoNaoEncontrado(String nome) {
 		System.out.println("\n|| O tempero "+nome+" não foi encontrado. ||");
 	}		
+	
+	//==================================================================
+	
+	public void itemNãoEditado(String nome) {
+		System.out.println("\n|| O item "+nome+" não foi editado devido a um erro de inserção. ||");
+	}		
 
 	//==================================================================
 		
@@ -63,6 +69,24 @@ public class RetornosEErros {
 		
 	public void temperoRemovida (){
 		System.out.println("\n|| Tempero removido com sucesso! ||");
+	}
+
+	//==================================================================
+	
+	public void frutaEditadaSucesso (){
+		System.out.println("\n|| Fruta editada com sucesso! ||");
+	}
+	
+	//==================================================================
+	
+	public void verduraEditadaSucesso (){
+		System.out.println("\n|| Verdura editada com sucesso! ||");
+	}
+	
+	//==================================================================
+	
+	public void temperoEditadaSucesso (){
+		System.out.println("\n|| Tempero editada com sucesso! ||");
 	}
 
 	//==================================================================

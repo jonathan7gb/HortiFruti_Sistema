@@ -149,29 +149,46 @@ public class Estoque {
             	 		String nome = edicao_produtos.editarFruta();
             	 		encontrado = false;
             	 		
-            	 		for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
-	                        if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
-	                     	   estoqueProdutos.remove(indice);
-	                     	   encontrado = true;
-	                     	 
-	                           break;
-	                           
-	                        }
-	                    }
+            	 		for(Produto produto : estoqueProdutos) {
+            	 			if(produto instanceof Fruta fruta) {
+            	 				if(nome.equalsIgnoreCase(fruta.getNome())) {
+            	 					encontrado = true;
+            	 					System.out.println("\n" + fruta);
+            	 					int opcaoEdicao = menu.menuEscolhaItemEdicaoFruta();
+            	 					
+            	 					switch(opcaoEdicao) {
+            	 					case 1 ->{ //Editar Nome
+            	 						String novoNome = edicao_produtos.novoNome(nome);
+            	 						
+            	 						if(novoNome.isEmpty()) {
+            	 							retornos_e_erros.itemNãoEditado(nome);
+            	 						}else {
+            	 							fruta.setNome(novoNome);
+            	 							
+            	 							retornos_e_erros.frutaEditadaSucesso();
+            	 						}
+            	 					}//Break do case 1 do switch (opcaoEdicao)
+            	 					} //Break do switch (opcaoEdicao)
+            	 					break;
+            	 				}
+            	 			}
+            	 		}
+	                    
 	                    if (!encontrado) {
 	                    	retornos_e_erros.frutaNaoEncontrado(nome);
 	                 }
-            	 	}
+            	 	}//Break do case 1 do switch (escolhaEdicao)
             	 	
             	 	case 2 -> {
             	 		
-            	 	}
+            	 	} //Break do case 2 do switch (escolhaEdicao)
             	 	
             	 	case 3 -> {
             	 		
-            	 	}
-            	}
-            }
+            	 	}//Break do case 1 do switch (escolhaEdicao)
+            	}//Break do switch (escolhaEdicao)
+            	
+            } //FECHA CASE 3 GERENCIADOR APP
             
             case 4 -> {
             	
@@ -197,7 +214,7 @@ public class Estoque {
 	                    if (!removido) {
 	                    	retornos_e_erros.frutaNaoEncontrado(nome);
 	                 }
-	                }
+	                }//Break do case 1 do switch (escolha)
 	                
 	                case 2 -> {
 	                	String nome = remocao_produtos.removerVerdura();
@@ -216,7 +233,7 @@ public class Estoque {
 	                    if (!removido) {
 	                    	retornos_e_erros.verduraNaoEncontrado(nome);
 	                 }
-	                }
+	                }//Break do case 2 do switch (escolha)
 	                
 	                case 3 -> {
 	                	String nome = remocao_produtos.removerTempero();
@@ -235,7 +252,7 @@ public class Estoque {
 	                	if (!removido) {
 	                		retornos_e_erros.frutaNaoEncontrado(nome);
 	                	}
-	                }
+	                }//Break do case 3 do switch (escolha)
 	                
 	                case 4 -> {
 	                	int escolha2 = menu.menuRemoverFrutas();
@@ -253,7 +270,7 @@ public class Estoque {
 	            				retornos_e_erros.erro();
 	            			}
 	            		}
-	                }
+	                }//Break do case 4 do switch (escolha)
 	                
 	                case 5 -> {
 	                	int escolha2 = menu.menuRemoverVerduras();
@@ -272,7 +289,7 @@ public class Estoque {
 		                		retornos_e_erros.erro();
 		                	}
 		                }
-	                }
+	                }//Break do case 5 do switch (escolha)
 	                
 	                case 6 -> {
 	                	int escolha2 = menu.menuRemoverTemperos();
@@ -291,7 +308,7 @@ public class Estoque {
 		                		retornos_e_erros.erro();
 		                	}
 	            		}
-	                }
+	                }//Break do case 6 do switch (escolha)
 	                
 	                case 7 -> {
 	                	int escolha2 = menu.menuRemoverTodos();
@@ -314,9 +331,9 @@ public class Estoque {
 	                default ->{
 	                	retornos_e_erros.erro();
 	                }
-                }
+                }//Break do case 7 do switch (escolha)
                 
-            } //FECHA CASE 3 GERENCIADOR APP
+            } //FECHA CASE 4 GERENCIADOR APP
 
             case 5 ->{
             	retornos_e_erros.totalProdutos();
