@@ -21,7 +21,7 @@ public class Estoque {
 	}
 	
 
-	public void gerenciadorApp (int opcao, Menus menu, CadastroProdutos cadastro_produtos, MensagemSaida mensagen_saida, RetornosEErros retornos_e_erros, RemocaoProdutos remocao_produtos){
+	public void gerenciadorApp (int opcao, Menus menu, CadastroProdutos cadastro_produtos, MensagemSaida mensagen_saida, RetornosEErros retornos_e_erros, RemocaoProdutos remocao_produtos, EdicaoProdutos edicao_produtos){
 		
 		
         switch (opcao){
@@ -140,7 +140,40 @@ public class Estoque {
             	
             }//FECHA CASE 2 GERENCIADOR APP
             
-            case 3 ->{
+            case 3 -> {
+            	int escolhaEdicao = menu.menuEdicao();
+            	boolean encontrado = false;
+            	
+            	switch(escolhaEdicao) {
+            	 	case 1 ->{
+            	 		String nome = edicao_produtos.editarFruta();
+            	 		encontrado = false;
+            	 		
+            	 		for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
+	                        if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
+	                     	   estoqueProdutos.remove(indice);
+	                     	   encontrado = true;
+	                     	 
+	                           break;
+	                           
+	                        }
+	                    }
+	                    if (!encontrado) {
+	                    	retornos_e_erros.frutaNaoEncontrado(nome);
+	                 }
+            	 	}
+            	 	
+            	 	case 2 -> {
+            	 		
+            	 	}
+            	 	
+            	 	case 3 -> {
+            	 		
+            	 	}
+            	}
+            }
+            
+            case 4 -> {
             	
                 int escolha = menu.menuRemover();
                 boolean removido = false;
@@ -285,7 +318,7 @@ public class Estoque {
                 
             } //FECHA CASE 3 GERENCIADOR APP
 
-            case 4 ->{
+            case 5 ->{
             	retornos_e_erros.totalProdutos();
             } //FECHA CASE 4 GERENCIADOR APP
 

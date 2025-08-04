@@ -12,8 +12,9 @@ public class Menus {
 		System.out.println("\n||   HORTIFRUTI SISTEMA   ||");
 		System.out.println("|| 1 - Cadastrar Produto  ||");
 		System.out.println("|| 2 - Listar Produto     ||");
-		System.out.println("|| 3 - Remover Produto    ||");
-		System.out.println("|| 4 - Total de Produtos  ||");
+		System.out.println("|| 3 - Editar Produto     ||");
+		System.out.println("|| 4 - Remover Produto    ||");
+		System.out.println("|| 5 - Total de Produtos  ||");
 		System.out.println("|| 0 - Sair do Sistema    ||");
 		System.out.println("|| ====================== ||");
 		System.out.print("|| Sua escolha: ");
@@ -44,6 +45,65 @@ public class Menus {
 		System.out.println("|| 2 - Listar Verduras       ||");
 		System.out.println("|| 3 - Listar Temperos       ||");
 		System.out.println("|| 4 - Listar Todos Produtos ||");
+		System.out.println("|| ========================= ||");
+		System.out.print("|| Sua escolha: ");
+		int opcao = leiaNum.nextInt();
+		return opcao;
+	}
+
+	//====================================================================
+	
+	public int menuEdicao() {
+		System.out.println("\n||      Edição Produtos      ||");
+		System.out.println("|| ========================= ||");
+		System.out.println("|| 1 - Editar Fruta         ||");
+		System.out.println("|| 2 - Editar Verdura       ||");
+		System.out.println("|| 3 - Editar Temperos      ||");
+		System.out.println("|| ========================= ||");
+		System.out.print("|| Sua escolha: ");
+		int opcao = leiaNum.nextInt();
+		return opcao;
+	}
+	
+	//====================================================================
+	
+	public int menuEscolhaItemEdicaoFruta() {
+		System.out.println("\n||        Editar Fruta       ||");
+		System.out.println("|| ========================= ||");
+		System.out.println("|| 1 - Editar Nome           ||");
+		System.out.println("|| 2 - Editar Preço (R$)     ||");
+		System.out.println("|| 3 - Editar Quantidade     ||");
+		System.out.println("|| 4 - Editar Peso (Kg)      ||");
+		System.out.println("|| ========================= ||");
+		System.out.print("|| Sua escolha: ");
+		int opcao = leiaNum.nextInt();
+		return opcao;
+	}
+	
+	//====================================================================
+	
+	public int menuEscolhaItemEdicaoVerdura() {
+		System.out.println("\n||        Editar Verdura       ||");
+		System.out.println("|| ========================= ||");
+		System.out.println("|| 1 - Editar Nome           ||");
+		System.out.println("|| 2 - Editar Preço (R$)     ||");
+		System.out.println("|| 3 - Editar Quantidade     ||");
+		System.out.println("|| 4 - Editar Tipo           ||");
+		System.out.println("|| ========================= ||");
+		System.out.print("|| Sua escolha: ");
+		int opcao = leiaNum.nextInt();
+		return opcao;
+	}
+	
+	//====================================================================
+	
+	public int menuEscolhaItemEdicaoTempero() {
+		System.out.println("\n||        Editar Tempero       ||");
+		System.out.println("|| ========================= ||");
+		System.out.println("|| 1 - Editar Nome           ||");
+		System.out.println("|| 2 - Editar Preço (R$)     ||");
+		System.out.println("|| 3 - Editar Quantidade     ||");
+		System.out.println("|| 4 - Editar Tipo           ||");
 		System.out.println("|| ========================= ||");
 		System.out.print("|| Sua escolha: ");
 		int opcao = leiaNum.nextInt();
