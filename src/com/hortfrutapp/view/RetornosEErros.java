@@ -92,7 +92,7 @@ public class RetornosEErros {
 	//==================================================================
 		
 	public void erro(){
-		System.out.println("|| Erro: Opção inválida! ||");
+		System.out.println("\n|| Erro: Opção inválida! ||");
 	}
 
 	//==================================================================
