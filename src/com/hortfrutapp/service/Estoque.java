@@ -263,86 +263,125 @@ public class Estoque {
                 
                 switch(escolha) {
 	                case 1 -> {
-	                	String nome = remocao_produtos.removerFruta();
-	                	removido = false; 
+						try{
+							Thread.sleep(400);
+							String nome = remocao_produtos.removerFruta();
+							Thread.sleep(400);
+							removido = false; 
 
-	                    for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
-	                        if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
-	                     	   estoqueProdutos.remove(indice);
-	                     	   removido = true;
-	                     	  retornos_e_erros.frutaRemovida();
-	                           Fruta.setTotalFrutas(Fruta.getTotalFrutas()-1);
-	                           Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
-	                           break;
-	                           
-	                        }
-	                    }
-	                    if (!removido) {
-	                    	retornos_e_erros.frutaNaoEncontrado(nome);
-	                 }
+							for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
+								if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
+								estoqueProdutos.remove(indice);
+								removido = true;
+								retornos_e_erros.frutaRemovida();
+								Fruta.setTotalFrutas(Fruta.getTotalFrutas()-1);
+								Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
+								Thread.sleep(400);
+								break;
+								
+								}
+							}
+							if (!removido) {
+								retornos_e_erros.frutaNaoEncontrado(nome);
+								Thread.sleep(400);
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
+	                	
 	                }//Break do case 1 do switch (escolha)
 	                
 	                case 2 -> {
-	                	String nome = remocao_produtos.removerVerdura();
-	                    removido = false; 
+						try{
+							Thread.sleep(400);
+							String nome = remocao_produtos.removerVerdura();
+							Thread.sleep(400);
+							removido = false; 
 
-	                    for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
-	                        if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
-	                     	   estoqueProdutos.remove(indice);
-	                            removido = true;
-	                            retornos_e_erros.verduraRemovida();
-	                            Verdura.setTotalVerduras(Verdura.getTotalVerduras()-1);
-	                            Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
-	                            break;
-	                        }
-	                    }
-	                    if (!removido) {
-	                    	retornos_e_erros.verduraNaoEncontrado(nome);
-	                 }
+							for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
+								if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
+								estoqueProdutos.remove(indice);
+									removido = true;
+									retornos_e_erros.verduraRemovida();
+									Verdura.setTotalVerduras(Verdura.getTotalVerduras()-1);
+									Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
+									Thread.sleep(400);
+									break;
+								}
+							}
+							if (!removido) {
+								retornos_e_erros.verduraNaoEncontrado(nome);
+								Thread.sleep(400);
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
+	                	
 	                }//Break do case 2 do switch (escolha)
 	                
 	                case 3 -> {
-	                	String nome = remocao_produtos.removerTempero();
-	                	removido = false; 
+						try{
+							Thread.sleep(400);
+							String nome = remocao_produtos.removerTempero();
+							Thread.sleep(400);
+							removido = false; 
+							
+							for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
+								if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
+									estoqueProdutos.remove(indice);
+									removido = true;
+									retornos_e_erros.temperoRemovida();
+									Tempero.setTotalTemperos(Tempero.getTotalTemperos()-1);
+									Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
+									Thread.sleep(400);
+									break;
+								}
+							}
+							if (!removido) {
+								retornos_e_erros.frutaNaoEncontrado(nome);
+								Thread.sleep(400);
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                	
-	                	for( int indice = 0; indice < estoqueProdutos.size(); indice ++) {
-	                		if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
-	                			estoqueProdutos.remove(indice);
-	                			removido = true;
-	                			retornos_e_erros.temperoRemovida();
-	                			Tempero.setTotalTemperos(Tempero.getTotalTemperos()-1);
-	                			Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
-	                			break;
-	                		}
-	                	}
-	                	if (!removido) {
-	                		retornos_e_erros.frutaNaoEncontrado(nome);
-	                	}
 	                }//Break do case 3 do switch (escolha)
 	                
 	                case 4 -> {
-	                	int escolha2 = menu.menuRemoverFrutas();
+						try{
+							Thread.sleep(400);
+							int escolha2 = menu.menuRemoverFrutas();
+							Thread.sleep(400);
+							
+							if(estoqueProdutos.isEmpty()) {
+								retornos_e_erros.produtoN();
+								Thread.sleep(400);
+							}else {
+								if(escolha2 == 1) {
+									estoqueProdutos.removeIf(produto -> produto instanceof Fruta);
+									Produto.setTotalProdutos(Produto.getTotalProdutos() - Fruta.getTotalFrutas());
+									Fruta.setTotalFrutas(0);
+									Thread.sleep(200);
+								}else if(escolha2 == 2) {
+									System.out.println("\n|| Ok! Fica Tranquilo, as frutas não foram removidas ||");
+									Thread.sleep(400);
+								}else {
+									retornos_e_erros.erro();
+									Thread.sleep(400);
+								}
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                	
-	                	if(estoqueProdutos.isEmpty()) {
-	                		retornos_e_erros.produtoN();
-	            		}else {
-	            			if(escolha2 == 1) {
-	            				estoqueProdutos.removeIf(produto -> produto instanceof Fruta);
-	            				Produto.setTotalProdutos(Produto.getTotalProdutos() - Fruta.getTotalFrutas());
-	            				Fruta.setTotalFrutas(0);
-	            			}else if(escolha2 == 2) {
-	            				System.out.println("\n|| Ok! Fica Tranquilo, as frutas não foram removidas ||");
-	            			}else {
-	            				retornos_e_erros.erro();
-	            			}
-	            		}
 	                }//Break do case 4 do switch (escolha)
 	                
 	                case 5 -> {
 						try{
-							int escolha2 = menu.menuRemoverVerduras();
-							removido = false; 
 							Thread.sleep(400);
+							int escolha2 = menu.menuRemoverVerduras();
+							Thread.sleep(400);
+							removido = false; 
 							
 							if(estoqueProdutos.isEmpty()) {
 								retornos_e_erros.produtoN();
@@ -369,9 +408,10 @@ public class Estoque {
 	                
 	                case 6 -> {
 						try{
-							int escolha2 = menu.menuRemoverTemperos();
-							removido = false; 
 							Thread.sleep(400);
+							int escolha2 = menu.menuRemoverTemperos();
+							Thread.sleep(400);
+							removido = false; 
 							
 							if(estoqueProdutos.isEmpty()) {
 								retornos_e_erros.produtoN();
@@ -398,6 +438,7 @@ public class Estoque {
 	                
 	                case 7 -> {
 						try{
+							Thread.sleep(400);
 							int escolha2 = menu.menuRemoverTodos();
 							Thread.sleep(400);
 							
