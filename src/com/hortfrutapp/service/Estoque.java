@@ -157,17 +157,53 @@ public class Estoque {
             	 					int opcaoEdicao = menu.menuEscolhaItemEdicaoFruta();
             	 					
             	 					switch(opcaoEdicao) {
-            	 					case 1 ->{ //Editar Nome
-            	 						String novoNome = edicao_produtos.novoNome(nome);
-            	 						
-            	 						if(novoNome.isEmpty()) {
-            	 							retornos_e_erros.itemNãoEditado(nome);
-            	 						}else {
-            	 							fruta.setNome(novoNome);
-            	 							
-            	 							retornos_e_erros.frutaEditadaSucesso();
-            	 						}
-            	 					}//Break do case 1 do switch (opcaoEdicao)
+	            	 					case 1 ->{ //Editar Nome
+	            	 						String novoNome = edicao_produtos.novoNome(nome);
+	            	 						
+	            	 						if(novoNome.isEmpty()) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							fruta.setNome(novoNome);
+	            	 							
+	            	 							retornos_e_erros.frutaEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 1 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 2 ->{ //Editar Preço (R$)
+	            	 						double novoPreco = edicao_produtos.novoPreco(nome);
+	            	 						
+	            	 						if(novoPreco < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							fruta.setPreco(novoPreco);
+	            	 							
+	            	 							retornos_e_erros.frutaEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 2 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 3 -> { //Editar Quantidade
+	            	 						int novaQuantidade = edicao_produtos.novaQuantidade(nome);
+	            	 						
+	            	 						if(novaQuantidade < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							fruta.setQuantidade(novaQuantidade);
+	            	 							
+	            	 							retornos_e_erros.frutaEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 3 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 4 -> { //Editar Peso (Kg)
+	            	 						double novoPeso = edicao_produtos.novoPeso(nome);
+	            	 						
+	            	 						if(novoPeso < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							fruta.setPeso(novoPeso);
+	            	 							
+	            	 							retornos_e_erros.frutaEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 4 do switch (opcaoEdicao)
             	 					} //Break do switch (opcaoEdicao)
             	 					break;
             	 				}
@@ -180,6 +216,9 @@ public class Estoque {
             	 	}//Break do case 1 do switch (escolhaEdicao)
             	 	
             	 	case 2 -> {
+            	 		String nome = edicao_produtos.editarVerdura();
+            	 		encontrado = false;
+            	 		
             	 		
             	 	} //Break do case 2 do switch (escolhaEdicao)
             	 	

@@ -56,9 +56,9 @@ public class Menus {
 	public int menuEdicao() {
 		System.out.println("\n||      Edição Produtos      ||");
 		System.out.println("|| ========================= ||");
-		System.out.println("|| 1 - Editar Fruta         ||");
-		System.out.println("|| 2 - Editar Verdura       ||");
-		System.out.println("|| 3 - Editar Temperos      ||");
+		System.out.println("|| 1 - Editar Fruta          ||");
+		System.out.println("|| 2 - Editar Verdura        ||");
+		System.out.println("|| 3 - Editar Temperos       ||");
 		System.out.println("|| ========================= ||");
 		System.out.print("|| Sua escolha: ");
 		int opcao = leiaNum.nextInt();
@@ -83,7 +83,7 @@ public class Menus {
 	//====================================================================
 	
 	public int menuEscolhaItemEdicaoVerdura() {
-		System.out.println("\n||        Editar Verdura       ||");
+		System.out.println("\n||       Editar Verdura      ||");
 		System.out.println("|| ========================= ||");
 		System.out.println("|| 1 - Editar Nome           ||");
 		System.out.println("|| 2 - Editar Preço (R$)     ||");
@@ -98,7 +98,7 @@ public class Menus {
 	//====================================================================
 	
 	public int menuEscolhaItemEdicaoTempero() {
-		System.out.println("\n||        Editar Tempero       ||");
+		System.out.println("\n||       Editar Tempero      ||");
 		System.out.println("|| ========================= ||");
 		System.out.println("|| 1 - Editar Nome           ||");
 		System.out.println("|| 2 - Editar Preço (R$)     ||");

@@ -47,7 +47,7 @@ public class EdicaoProdutos {
 	
 	//====================================================================
 	
-	public int novoQuantidade(String nome) {
+	public int novaQuantidade(String nome) {
 		System.out.print("\n|| Digite a nova quantidade do produto (" + nome + "): ");
 		int quantidadeItem = leiaNum.nextInt();
 		return quantidadeItem;
