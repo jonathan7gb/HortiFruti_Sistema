@@ -60,18 +60,24 @@ public class Estoque {
             		if (estoqueProdutos.isEmpty()) {
             			retornos_e_erros.produtoN();
                     }else {
-                    	System.out.println("\n|| LISTA DE FRUTAS ||\n");
-	            		for (Produto produto : estoqueProdutos) {
-	            			if(produto instanceof Fruta fruta){
-	            				System.out.println(fruta);
-	            				System.out.println("------------------");
-	            				encontrado = true;
-	            			}
-	            		}
-	            		
-	            		if(encontrado == false) {
-	            			retornos_e_erros.frutaN();
-	            		}
+						try{
+							Thread.sleep(400);
+							System.out.println("\n|| LISTA DE FRUTAS ||\n");
+							for (Produto produto : estoqueProdutos) {
+								if(produto instanceof Fruta fruta){
+									System.out.println(fruta);
+									System.out.println("------------------");
+									Thread.sleep(350);
+									encontrado = true;
+								}
+							}
+							
+							if(encontrado == false) {
+								retornos_e_erros.frutaN();
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                }
             		
             		
@@ -80,18 +86,24 @@ public class Estoque {
             		if (estoqueProdutos.isEmpty()) {
             			retornos_e_erros.produtoN();
                     }else {
-                    	System.out.println("\n|| LISTA DE VERDURAS ||\n");
-	            		for (Produto produto : estoqueProdutos) {
-	            			if(produto instanceof Verdura verdura){
-	            				System.out.println(verdura);
-	            				System.out.println("------------------");
-	            				encontrado = true;
-	            			}
-	            		}
-	            		
-	            		if(encontrado == false) {
-	            			retornos_e_erros.verduraN();
-	            		}
+						try{
+							Thread.sleep(400);
+							System.out.println("\n|| LISTA DE VERDURAS ||\n");
+							for (Produto produto : estoqueProdutos) {
+								if(produto instanceof Verdura verdura){
+									System.out.println(verdura);
+									System.out.println("------------------");
+									Thread.sleep(350);
+									encontrado = true;
+								}
+							}
+							
+							if(encontrado == false) {
+								retornos_e_erros.verduraN();
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                }
                     
             	}else if(escolha == 3) {
@@ -99,44 +111,59 @@ public class Estoque {
             		if (estoqueProdutos.isEmpty()) {
             			retornos_e_erros.produtoN();
                     }else {
-                    	System.out.println("\n|| LISTA DE TEMPEROS ||\n");
-	            		for (Produto produto : estoqueProdutos) {
-	            			if(produto instanceof Tempero tempero){
-	            				System.out.println(tempero);
-	            				System.out.println("------------------");
-	            				encontrado = true;
-	            			}
-	            		}
-	            		
-	            		if(encontrado == false) {
-	            			retornos_e_erros.verduraN();
-	            		}
+						try{
+							Thread.sleep(400);
+							System.out.println("\n|| LISTA DE TEMPEROS ||\n");
+							for (Produto produto : estoqueProdutos) {
+								if(produto instanceof Tempero tempero){
+									System.out.println(tempero);
+									System.out.println("------------------");
+									Thread.sleep(350);
+									encontrado = true;
+								}
+							}
+							
+							if(encontrado == false) {
+								retornos_e_erros.verduraN();
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                }
             		
             	}else if(escolha == 4){
             		if (estoqueProdutos.isEmpty()) {
             			retornos_e_erros.produtoN();
                     }else {
-                    	System.out.println("\n|| LISTA DE PRODUTOS ||\n");
-	            		for (Produto produto : estoqueProdutos) {
-	            			if(produto instanceof Verdura verdura){
-	            				System.out.println(verdura);
-	            				System.out.println("------------------");
-	            				encontrado = true;
-	            			}else if(produto instanceof Fruta fruta){
-	            				System.out.println(fruta);
-	            				System.out.println("------------------");
-	            				encontrado = true;
-	            			}else if(produto instanceof Tempero tempero){
-		            			System.out.println(tempero);
-		            			System.out.println("------------------");
-		            			encontrado = true;
-		            		}
-	            		}
+						try{
+							Thread.sleep(400);
+							System.out.println("\n|| LISTA DE PRODUTOS ||\n");
+							for (Produto produto : estoqueProdutos) {
+								if(produto instanceof Verdura verdura){
+									System.out.println(verdura);
+									System.out.println("------------------");
+									Thread.sleep(350);
+									encontrado = true;
+								}else if(produto instanceof Fruta fruta){
+									System.out.println(fruta);
+									System.out.println("------------------");
+									Thread.sleep(350);
+									encontrado = true;
+								}else if(produto instanceof Tempero tempero){
+									System.out.println(tempero);
+									System.out.println("------------------");
+									Thread.sleep(350);
+									encontrado = true;
+								}
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
                     }
             	}else {
             		retornos_e_erros.erro();
             	}
+				
             	
             }//FECHA CASE 2 GERENCIADOR APP
             
@@ -312,60 +339,90 @@ public class Estoque {
 	                }//Break do case 4 do switch (escolha)
 	                
 	                case 5 -> {
-	                	int escolha2 = menu.menuRemoverVerduras();
-	                	removido = false; 
+						try{
+							int escolha2 = menu.menuRemoverVerduras();
+							removido = false; 
+							Thread.sleep(400);
+							
+							if(estoqueProdutos.isEmpty()) {
+								retornos_e_erros.produtoN();
+								Thread.sleep(400);
+							}else {
+								if(escolha2 == 1) {
+									estoqueProdutos.removeIf(produto -> produto instanceof Verdura);
+									Produto.setTotalProdutos(Produto.getTotalProdutos() - Verdura.getTotalVerduras());
+									Verdura.setTotalVerduras(0);
+									Thread.sleep(200);
+								}else if(escolha2 == 2) {
+									System.out.println("\n|| Ok! Fica Tranquilo, as verduras não foram removidas ||");
+									Thread.sleep(400);
+								}else {
+									retornos_e_erros.erro();
+									Thread.sleep(400);
+								}
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                	
-	                	if(estoqueProdutos.isEmpty()) {
-	                		retornos_e_erros.produtoN();
-	            		}else {
-	            			if(escolha2 == 1) {
-		                		estoqueProdutos.removeIf(produto -> produto instanceof Verdura);
-		                		Produto.setTotalProdutos(Produto.getTotalProdutos() - Verdura.getTotalVerduras());
-	            				Verdura.setTotalVerduras(0);
-		                	}else if(escolha2 == 2) {
-		                		System.out.println("\n|| Ok! Fica Tranquilo, as verduras não foram removidas ||");
-		                	}else {
-		                		retornos_e_erros.erro();
-		                	}
-		                }
 	                }//Break do case 5 do switch (escolha)
 	                
 	                case 6 -> {
-	                	int escolha2 = menu.menuRemoverTemperos();
-	                	removido = false; 
+						try{
+							int escolha2 = menu.menuRemoverTemperos();
+							removido = false; 
+							Thread.sleep(400);
+							
+							if(estoqueProdutos.isEmpty()) {
+								retornos_e_erros.produtoN();
+								Thread.sleep(400);
+							}else {
+								if(escolha2 == 1) {
+									estoqueProdutos.removeIf(produto -> produto instanceof Tempero);
+									Produto.setTotalProdutos(Produto.getTotalProdutos() - Tempero.getTotalTemperos());
+									Tempero.setTotalTemperos(0);
+									Thread.sleep(200);
+								}else if(escolha2 == 2) {
+									System.out.println("\n|| Ok! Fica Tranquilo, os temperos não foram removidos ||");
+									Thread.sleep(400);
+								}else {
+									retornos_e_erros.erro();
+									Thread.sleep(400);
+								}
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                	
-	                	if(estoqueProdutos.isEmpty()) {
-	                		retornos_e_erros.produtoN();
-	            		}else {
-	            			if(escolha2 == 1) {
-	            				estoqueProdutos.removeIf(produto -> produto instanceof Tempero);
-	            				Produto.setTotalProdutos(Produto.getTotalProdutos() - Tempero.getTotalTemperos());
-	            				Tempero.setTotalTemperos(0);
-		                	}else if(escolha2 == 2) {
-		                		System.out.println("\n|| Ok! Fica Tranquilo, os temperos não foram removidos ||");
-		                	}else {
-		                		retornos_e_erros.erro();
-		                	}
-	            		}
 	                }//Break do case 6 do switch (escolha)
 	                
 	                case 7 -> {
-	                	int escolha2 = menu.menuRemoverTodos();
-	                   	
-	                	if(estoqueProdutos.isEmpty()) {
-	                		retornos_e_erros.produtoN();
-	            		}else if(escolha2 == 1) {
-	                		estoqueProdutos.removeIf(produto -> produto instanceof Fruta || produto instanceof Verdura || produto instanceof Tempero);
-	                		Produto.setTotalProdutos(0);
-	                		Fruta.setTotalFrutas(0);
-	                		Verdura.setTotalVerduras(0);
-	                		Tempero.setTotalTemperos(0);
-	                	}else if(escolha2 == 2) {
-	                		System.out.println("\n|| Ok! Fica Tranquilo, os produtos não foram removidos ||");
-	                	}else {
-	                		retornos_e_erros.erro();
-	                	}
+						try{
+							int escolha2 = menu.menuRemoverTodos();
+							Thread.sleep(400);
+							
+							if(estoqueProdutos.isEmpty()) {
+								retornos_e_erros.produtoN();
+								Thread.sleep(400);
+							}else if(escolha2 == 1) {
+								estoqueProdutos.removeIf(produto -> produto instanceof Fruta || produto instanceof Verdura || produto instanceof Tempero);
+								Produto.setTotalProdutos(0);
+								Fruta.setTotalFrutas(0);
+								Verdura.setTotalVerduras(0);
+								Tempero.setTotalTemperos(0);
+								Thread.sleep(200);
+							}else if(escolha2 == 2) {
+								System.out.println("\n|| Ok! Fica Tranquilo, os produtos não foram removidos ||");
+								Thread.sleep(400);
+							}else {
+								retornos_e_erros.erro();
+								Thread.sleep(400);
+							}
+						}catch (InterruptedException e) {
+							e.printStackTrace(); 
+						}
 	                }
+					
 	                
 	                default ->{
 	                	retornos_e_erros.erro();
@@ -375,7 +432,12 @@ public class Estoque {
             } //FECHA CASE 4 GERENCIADOR APP
 
             case 5 ->{
-            	retornos_e_erros.totalProdutos();
+				try{
+					Thread.sleep(400);
+            		retornos_e_erros.totalProdutos();
+				}catch (InterruptedException e) {
+					e.printStackTrace(); 
+				}
             } //FECHA CASE 4 GERENCIADOR APP
 
            
