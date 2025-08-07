@@ -43,7 +43,7 @@ public class RetornosEErros {
 
 	//==================================================================
 			
-	public void TemperoNaoEncontrado(String nome) {
+	public void temperoNaoEncontrado(String nome) {
 		System.out.println("\n|| O tempero "+nome+" não foi encontrado. ||");
 	}		
 	
@@ -56,19 +56,25 @@ public class RetornosEErros {
 	//==================================================================
 		
 	public void frutaRemovida (){
-		System.out.println("\n|| Fruta removida com sucesso! ||");
+		System.out.println("\n|| Fruta(s) removida(s) com sucesso! ||");
 	}
 
 	//==================================================================
 		
 	public void verduraRemovida (){
-		System.out.println("\n|| Verdura removida com sucesso! ||");
+		System.out.println("\n|| Verdura(s) removida(s) com sucesso! ||");
 	}
 
 	//==================================================================
 		
-	public void temperoRemovida (){
-		System.out.println("\n|| Tempero removido com sucesso! ||");
+	public void temperoRemovido (){
+		System.out.println("\n|| Tempero(s) removido(s) com sucesso! ||");
+	}
+
+	//==================================================================
+		
+	public void produtosRemovido(){
+		System.out.println("\n|| Produtos removidos com sucesso! ||");
 	}
 
 	//==================================================================

@@ -246,12 +246,145 @@ public class Estoque {
             	 		String nome = edicao_produtos.editarVerdura();
             	 		encontrado = false;
             	 		
-            	 		
+            	 		for(Produto produto : estoqueProdutos) {
+            	 			if(produto instanceof Verdura verdura) {
+            	 				if(nome.equalsIgnoreCase(verdura.getNome())) {
+            	 					encontrado = true;
+            	 					System.out.println("\n" + verdura);
+            	 					int opcaoEdicao = menu.menuEscolhaItemEdicaoVerdura();
+            	 					
+            	 					switch(opcaoEdicao) {
+	            	 					case 1 ->{ //Editar Nome
+	            	 						String novoNome = edicao_produtos.novoNome(nome);
+	            	 						
+	            	 						if(novoNome.isEmpty()) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							verdura.setNome(novoNome);
+	            	 							
+	            	 							retornos_e_erros.verduraEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 1 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 2 ->{ //Editar Preço (R$)
+	            	 						double novoPreco = edicao_produtos.novoPreco(nome);
+	            	 						
+	            	 						if(novoPreco < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							verdura.setPreco(novoPreco);
+	            	 							
+	            	 							retornos_e_erros.verduraEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 2 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 3 -> { //Editar Quantidade
+	            	 						int novaQuantidade = edicao_produtos.novaQuantidade(nome);
+	            	 						
+	            	 						if(novaQuantidade < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							verdura.setQuantidade(novaQuantidade);
+	            	 							
+	            	 							retornos_e_erros.verduraEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 3 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 4 -> { //Editar Peso (Kg)
+	            	 						String novoTipo = edicao_produtos.novoTipo(nome);
+	            	 						
+	            	 						if(novoTipo.isEmpty()) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							verdura.setTipo(novoTipo);
+	            	 							
+	            	 							retornos_e_erros.verduraEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 4 do switch (opcaoEdicao)
+            	 					} //Break do switch (opcaoEdicao)
+            	 					break;
+            	 				}
+            	 			}
+            	 		}
+	                    
+	                    if (!encontrado) {
+	                    	retornos_e_erros.verduraNaoEncontrado(nome);
+	                 }
             	 	} //Break do case 2 do switch (escolhaEdicao)
             	 	
             	 	case 3 -> {
+            	 		String nome = edicao_produtos.editarTempero();
+            	 		encontrado = false;
             	 		
-            	 	}//Break do case 1 do switch (escolhaEdicao)
+            	 		for(Produto produto : estoqueProdutos) {
+            	 			if(produto instanceof Tempero tempero) {
+            	 				if(nome.equalsIgnoreCase(tempero.getNome())) {
+            	 					encontrado = true;
+            	 					System.out.println("\n" + tempero);
+            	 					int opcaoEdicao = menu.menuEscolhaItemEdicaoTempero();
+            	 					
+            	 					switch(opcaoEdicao) {
+	            	 					case 1 ->{ //Editar Nome
+	            	 						String novoNome = edicao_produtos.novoNome(nome);
+	            	 						
+	            	 						if(novoNome.isEmpty()) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							tempero.setNome(novoNome);
+	            	 							
+	            	 							retornos_e_erros.temperoEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 1 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 2 ->{ //Editar Preço (R$)
+	            	 						double novoPreco = edicao_produtos.novoPreco(nome);
+	            	 						
+	            	 						if(novoPreco < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							tempero.setPreco(novoPreco);
+	            	 							
+	            	 							retornos_e_erros.temperoEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 2 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 3 -> { //Editar Quantidade
+	            	 						int novaQuantidade = edicao_produtos.novaQuantidade(nome);
+	            	 						
+	            	 						if(novaQuantidade < 0) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							tempero.setQuantidade(novaQuantidade);
+	            	 							
+	            	 							retornos_e_erros.temperoEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 3 do switch (opcaoEdicao)
+	            	 					
+	            	 					case 4 -> { //Editar Peso (Kg)
+	            	 						String novoTipo = edicao_produtos.novoTipo(nome);
+	            	 						
+	            	 						if(novoTipo.isEmpty()) {
+	            	 							retornos_e_erros.itemNãoEditado(nome);
+	            	 						}else {
+	            	 							tempero.setTipo(novoTipo);
+	            	 							
+	            	 							retornos_e_erros.temperoEditadaSucesso();
+	            	 						}
+	            	 					}//Break do case 4 do switch (opcaoEdicao)
+            	 					} //Break do switch (opcaoEdicao)
+            	 					break;
+            	 				}
+            	 			}
+            	 		}
+	                    
+	                    if (!encontrado) {
+	                    	retornos_e_erros.temperoNaoEncontrado(nome);
+	                 }
+            	 	}//Break do case 3 do switch (escolhaEdicao)
+
+					default -> {
+						retornos_e_erros.erro();
+					}
             	}//Break do switch (escolhaEdicao)
             	
             } //FECHA CASE 3 GERENCIADOR APP
@@ -330,7 +463,7 @@ public class Estoque {
 								if (estoqueProdutos.get(indice).getNome().equalsIgnoreCase(nome)) {
 									estoqueProdutos.remove(indice);
 									removido = true;
-									retornos_e_erros.temperoRemovida();
+									retornos_e_erros.temperoRemovido();
 									Tempero.setTotalTemperos(Tempero.getTotalTemperos()-1);
 									Produto.setTotalProdutos(Produto.getTotalProdutos()-1);
 									Thread.sleep(400);
@@ -362,6 +495,7 @@ public class Estoque {
 									Produto.setTotalProdutos(Produto.getTotalProdutos() - Fruta.getTotalFrutas());
 									Fruta.setTotalFrutas(0);
 									Thread.sleep(200);
+									retornos_e_erros.frutaRemovida();
 								}else if(escolha2 == 2) {
 									System.out.println("\n|| Ok! Fica Tranquilo, as frutas não foram removidas ||");
 									Thread.sleep(400);
@@ -392,6 +526,7 @@ public class Estoque {
 									Produto.setTotalProdutos(Produto.getTotalProdutos() - Verdura.getTotalVerduras());
 									Verdura.setTotalVerduras(0);
 									Thread.sleep(200);
+									retornos_e_erros.verduraRemovida();
 								}else if(escolha2 == 2) {
 									System.out.println("\n|| Ok! Fica Tranquilo, as verduras não foram removidas ||");
 									Thread.sleep(400);
@@ -422,6 +557,7 @@ public class Estoque {
 									Produto.setTotalProdutos(Produto.getTotalProdutos() - Tempero.getTotalTemperos());
 									Tempero.setTotalTemperos(0);
 									Thread.sleep(200);
+									retornos_e_erros.temperoRemovido();
 								}else if(escolha2 == 2) {
 									System.out.println("\n|| Ok! Fica Tranquilo, os temperos não foram removidos ||");
 									Thread.sleep(400);
@@ -452,6 +588,7 @@ public class Estoque {
 								Verdura.setTotalVerduras(0);
 								Tempero.setTotalTemperos(0);
 								Thread.sleep(200);
+								retornos_e_erros.produtosRemovido();
 							}else if(escolha2 == 2) {
 								System.out.println("\n|| Ok! Fica Tranquilo, os produtos não foram removidos ||");
 								Thread.sleep(400);
