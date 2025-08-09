@@ -97,10 +97,16 @@ public class RetornosEErros {
 
 	//==================================================================
 		
-	public void erro(){
+	public void erroOpcaoInvalida(){
 		System.out.println("\n|| Erro: Opção inválida! ||");
 	}
 
+	//==================================================================
+
+	public void erroDigiteNumero(){
+		System.out.println("\n|| Erro: Digite apenas números! ||");
+	}
+	
 	//==================================================================
 	
 	public static void totalProdutos() {

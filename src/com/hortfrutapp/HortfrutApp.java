@@ -23,7 +23,7 @@ public class HortfrutApp {
             } else if (opcaoMenu == 0) {
                 mensagem_saida.encerrando();
             } else {
-            	retornos_e_erros.erro();
+            	retornos_e_erros.erroOpcaoInvalida();
             }
         } while (opcaoMenu != 0);
     }

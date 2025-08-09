@@ -1,6 +1,5 @@
 package com.hortfrutapp.view;
 import java.util.Scanner;
-import com.hortfrutapp.model.*;
 
 public class EdicaoProdutos {
 
